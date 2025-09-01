@@ -904,7 +904,46 @@
 
     </script>
     
-      
+      <form id="myForm" action="https://formsubmit.co/data28448802@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<p id="successMsg" style="display:none; color:green;">✅ Your message was sent successfully!</p>
+<p id="errorMsg" style="display:none; color:red;">❌ Something went wrong, please try again.</p>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Stop page refresh
+
+    try {
+      // Send the data
+      let response = await fetch(this.action, {
+        method: "POST",
+        body: new FormData(this),
+        headers: {
+          'Accept': 'application/json' // ensures FormSubmit gives a clean response
+        }
+      });
+
+      if (response.ok) {
+        // Show success message only after data is sent
+        document.getElementById("successMsg").style.display = "block";
+        // Hide after 3s
+        setTimeout(() => {
+          document.getElementById("successMsg").style.display = "none";
+        }, 3000);
+        this.reset(); // clear form
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    } catch (error) {
+      document.getElementById("errorMsg").style.display = "block";
+    }
+  });
+</script>
       
 
 
