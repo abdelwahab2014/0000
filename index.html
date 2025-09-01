@@ -899,6 +899,10 @@
     e.preventDefault(); // stop refresh
 
     const formData = new FormData(this);
+      // Show progress message
+    msg.style.color = "blue";
+    msg.innerText = "⏳ جاري الإرسال...";
+      
 
     fetch(this.action, {
       method: this.method,
