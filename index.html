@@ -887,14 +887,6 @@
     event.preventDefault(); // stop page refresh
     document.getElementById("successMsg").style.display = "block";
 
-    // Example: send data via fetch (instead of reloading)
-    /*
-    fetch("your-endpoint.php", {
-      method: "POST",
-      body: new FormData(this)
-    }).then(response => response.text())
-      .then(data => console.log(data));
-    */
 
     // Hide success message after 3 seconds
     setTimeout(() => {
@@ -904,7 +896,7 @@
 
     </script>
     
-      <form id="myForm" action="https://formsubmit.co/data28448802@gmail.com" method="POST">
+      <form id="contact Form" action="https://formsubmit.co/data28448802@gmail.com" method="POST">
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="email" name="email" placeholder="Your Email" required>
   <textarea name="message" placeholder="Your Message" required></textarea>
@@ -915,7 +907,7 @@
 <p id="errorMsg" style="display:none; color:red;">❌ Something went wrong, please try again.</p>
 
 <script>
-  document.getElementById("myForm").addEventListener("submit", async function(event) {
+  document.getElementById("contactForm").addEventListener("submit", async function(event) {
     event.preventDefault(); // Stop page refresh
 
     try {
