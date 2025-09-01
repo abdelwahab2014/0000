@@ -897,7 +897,61 @@
     </script>
     
       
-      
+      <form id="contactForm" action="https://formsubmit.co/data28448802@gmail.com" method="POST">
+  <!-- FormSubmit options -->
+  <input type="hidden" name="_subject" value="رسالة جديدة من موقع المحترف للسلامة">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://abdelwahab2014.github.io/s/">
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="form-group">
+    <label for="name">الاسم</label>
+    <input id="name" name="name" type="text" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">البريد الإلكتروني</label>
+    <input id="email" name="email" type="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="message">الرسالة</label>
+    <textarea id="message" name="message" required></textarea>
+  </div>
+
+  <button type="submit">إرسال</button>
+</form>
+
+<p id="msg" style="color: green; font-weight: bold;"></p>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop refresh
+
+    const formData = new FormData(this);
+
+    fetch(this.action, {
+      method: this.method,
+      body: formData
+    })
+    .then(res => {
+      if (res.ok) {
+        document.getElementById("msg").innerText = "✅ تم إرسال الرسالة بنجاح!";
+        this.reset(); // clear form
+      } else {
+        document.getElementById("msg").innerText = "❌ حدث خطأ أثناء الإرسال!";
+      }
+    })
+    .catch(err => {
+      document.getElementById("msg").innerText = "⚠️ لم يتم الإرسال!";
+    });
+
+    // Hide the message after 3s
+    setTimeout(() => {
+      document.getElementById("msg").innerText = "";
+    }, 3000);
+  });
+</script>
 
 
     
